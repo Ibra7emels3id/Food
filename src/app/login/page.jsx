@@ -1,4 +1,4 @@
-import { SignUp } from "@clerk/nextjs";
+import { SignIn } from "@clerk/nextjs";
 import React from "react";
 
 const Page = () => {
@@ -72,7 +72,8 @@ const Page = () => {
                                     quibusdam aperiam voluptatum.
                                 </p>
                             </div>
-                            <SignUp />
+                            {/* <SignIn /> */}
+                            <SignIn path="/login" routing="path" signUpUrl="/signup" />
                         </div>
                     </main>
                 </div>

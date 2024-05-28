@@ -1,7 +1,12 @@
+'use client'
+import { useUser } from "@clerk/nextjs";
+import React, { useEffect } from "react";
+
 const { createSlice } = require("@reduxjs/toolkit");
 
+
 const initialState = {
-    cart: localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [] ,
+    cart: typeof window !== "undefined" ? localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [] : null,
     CartTotal: 0,
     cartquantity: 0,
 }
@@ -23,23 +28,22 @@ const CartSlice = createSlice({
         },
         removeItem: (state, action) => {
             const miunsCart = state.cart.filter((item) => item.id !== action.payload.id)
-            if (miunsCart >= 0) {
-                state.cart[miunsCart].cartquantity -= 1
-                if (state.cart[miunsCart].cartquantity <= 0) {
-                    state.cart.splice(miunsCart, 1)
-                }
-            }
+            state.cart = miunsCart
+            state.cart.splice(miunsCart, 1)
             localStorage.setItem('cart', JSON.stringify(state.cart))
-        },
-        clearCart: (state) => {
-            state.cart = [];
         },
         gettotal: (state, action) => {
             state.CartTotal = state.cart.reduce((total, item) => total + (item.attributes.price * item.cartquantity), 0);
             state.cartquantity = state.cart.reduce((quantity, item) => quantity + item.cartquantity, 0);
         },
+        CleareCart: (state, action) => {
+            state.cart = []
+            state.CartTotal = 0
+            state.cartquantity = 0
+            localStorage.setItem('cart', JSON.stringify(state.cart))
+        }
     }
 })
 
-export const { addItem, removeItem, clearCart, gettotal } = CartSlice.actions;
+export const { addItem, removeItem, clearCart, gettotal, CleareCart } = CartSlice.actions;
 export default CartSlice.reducer;

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^5.1.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.18",
@@ -16,14 +17,20 @@
     "@mui/material": "^5.15.18",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@reduxjs/toolkit": "^2.2.5",
+    "@stripe/react-stripe-js": "^2.7.1",
+    "@stripe/stripe-js": "^3.4.1",
     "json-server": "^1.0.0-beta.0",
+    "mkcert": "^3.2.0",
     "next": "^14.2.3",
+    "nss": "^0.0.1",
     "react": "^18",
     "react-dom": "^18",
     "react-redux": "^9.1.2",
+    "stripe": "^15.8.0",
     "styled-components": "^6.1.11"
   },
   "devDependencies": {
+    "@types/node": "20.12.12",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "postcss": "^8",

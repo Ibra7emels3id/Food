@@ -2,7 +2,6 @@ import React from 'react';
 
 const CheckCard = ({ item }) => {
 
-    console.log(item);
     return (
         <>
             <div className="carts p-1 ">

@@ -3,8 +3,8 @@ import * as React from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import Image from 'next/image';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import { fetchProducts } from '@/lib/features/ProductSlice';
+import { useAppDispatch, useAppSelector } from '../lib/hooks';
+import { fetchProducts } from '../lib/features/ProductSlice';
 import Cart from './cart';
 import Loader from './Loader';
 
