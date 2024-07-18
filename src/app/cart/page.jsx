@@ -16,7 +16,7 @@ const Page = () => {
     const router = useRouter()
 
 
-    const Cart = dataCart.cart.map((it) => {
+    const Cart = dataCart?.cart?.map((it) => {
         return <CartCheckOut key={it.id} item={it} />
     })
 
@@ -33,7 +33,7 @@ const Page = () => {
                                 {!Cart ? <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Please login Now</h1> :
                                     <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>}
                             </header>
-                            {!lll ? <div className='flex items-center justify-center'>
+                            {!Cart ? <div className='flex items-center justify-center'>
                                 <button className='mt-10 bg-[#2563eb] px-16 py-3 text-white font-medium' >
                                     <Link href="/login">login</Link>
                                 </button>
