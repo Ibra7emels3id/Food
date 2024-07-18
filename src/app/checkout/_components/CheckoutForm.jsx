@@ -7,11 +7,9 @@ import { CleareCart } from '../../../lib/features/CartSlice';
 import LoaderPayment from './LoaderPayment'
 
 const CheckoutForm = () => {
-
     // handle Send Data Strape
     const dispatch = useAppDispatch()
     const dataCart = useAppSelector((state) => state.cart)
-    // const { user } = useUser()
 
     const handleCheckOutCart = async () => {
         try {
@@ -26,7 +24,7 @@ const CheckoutForm = () => {
                         // user: user?.username,
                         // UserName: user?.fullName,
                         // Email: user?.emailAddresses[0]?.emailAddress,
-                        products: dataCart.cart,
+                        products: dataCart?.cart,
                         boolean: false
                     }
                 })
