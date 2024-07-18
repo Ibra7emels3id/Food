@@ -23,4 +23,12 @@ const checkout = () => {
     );
 }
 
-export default checkout;
+const SuspendedCheckoutPage = () => {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <checkout />
+        </Suspense>
+    );
+};
+
+export default SuspendedCheckoutPage;
