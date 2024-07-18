@@ -50,7 +50,7 @@ const Page = () => {
                                         <dl className="space-y-0.5 text-sm text-gray-700">
                                             <div className="flex justify-between">
                                                 <dt>Subtotal</dt>
-                                                <dd>${Math.round(dataCart.CartTotal)}</dd>
+                                                <dd>${Math.round(dataCart?.CartTotal)}</dd>
                                             </div>
 
                                             <div className="flex justify-between">
@@ -65,7 +65,7 @@ const Page = () => {
 
                                             <div className="flex justify-between !text-base font-medium">
                                                 <dt>Total</dt>
-                                                <dd>${Math.round(dataCart.CartTotal) + 10 - 20}</dd>
+                                                <dd>${Math.round(dataCart?.CartTotal) + 10 - 20}</dd>
                                             </div>
                                         </dl>
 
@@ -92,7 +92,7 @@ const Page = () => {
                                         </div>
                                         <div className="flex justify-end">
                                             <button onClick={()=>{
-                                                router.push(`/checkout?amount=${Math.round(dataCart.CartTotal) + 10 - 20}`)
+                                                router.push(`/checkout?amount=${Math.round(dataCart?.CartTotal) + 10 - 20}`)
                                             }} className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600">
                                                 Checkout
                                             </button>

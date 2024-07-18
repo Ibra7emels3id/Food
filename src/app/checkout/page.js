@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-const checkout = () => {
+const page = () => {
     const searchparams = useSearchParams()
 
     const options = {
@@ -26,7 +26,7 @@ const checkout = () => {
 const SuspendedCheckoutPage = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            <checkout />
+            <page />
         </Suspense>
     );
 };

@@ -1,7 +1,7 @@
 
 import { useStripe, useElements, PaymentElement } from '@stripe/react-stripe-js';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../lib/hooks';
 import { CleareCart } from '../../../lib/features/CartSlice';
 import LoaderPayment from './LoaderPayment'
