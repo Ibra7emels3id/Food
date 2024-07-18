@@ -26,7 +26,7 @@ const Products = () => {
 
 
 
-    const GetAllProducts = allProducts.data && allProducts.data.filter((item) => {
+    const GetAllProducts = allProducts?.data && allProducts?.data?.filter((item) => {
         return item.attributes.category === Alignment
     })
 

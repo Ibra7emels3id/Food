@@ -47,7 +47,7 @@ const Cart = ({ item }) => {
                 <div className="img p-5 flex items-center justify-center bg-[#f1f2f3] h-60 rounded-bl-full rounded-t-lg">
                     <img
                         src={`${process.env.NEXT_PUBLIC_URL}${item.attributes.imge.data[0].attributes.url}`}
-                        alt={item.attributes.imge.data[0].attributes.url}
+                        alt={item?.attributes?.imge?.data[0]?.attributes?.url}
                         width={200}
                         height={200}
                     />
