@@ -30,7 +30,7 @@ const Page = () => {
                         <div className="mx-auto max-w-3xl">
                             <header className="text-center">
                                 {/* comment */}
-                                {!Cart ? <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Please login Now</h1> :
+                                {!!Cart ? <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Please login Now</h1> :
                                     <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>}
                             </header>
                             {!Cart ? <div className='flex items-center justify-center'>
@@ -93,6 +93,7 @@ const Page = () => {
                                         <div className="flex justify-end">
                                             <button onClick={()=>{
                                                 router.push(`/checkout?amount=${Math.round(dataCart?.CartTotal) + 10 - 20}`)
+                                                // router.push(`/checkout`)
                                             }} className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600">
                                                 Checkout
                                             </button>
