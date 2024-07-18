@@ -1,5 +1,3 @@
-'use client'
-import { useUser } from "@clerk/nextjs";
 import React, { useEffect } from "react";
 
 const { createSlice } = require("@reduxjs/toolkit");

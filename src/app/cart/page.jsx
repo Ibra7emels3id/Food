@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../lib/hooks';
 import CartCheckOut from '../../components/cartCheckOut'
-import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import { fetchProducts } from '../../lib/features/ProductSlice';
 import CartSlice, { CleareCart, gettotal } from '../../lib/features/CartSlice';
@@ -13,7 +12,6 @@ const Page = () => {
     const dispatch = useAppDispatch()
     const dataCart = useAppSelector((state) => state.cart)
 
-    const { user } = useUser()
 
     const router = useRouter()
 
@@ -31,10 +29,11 @@ const Page = () => {
                     <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
                         <div className="mx-auto max-w-3xl">
                             <header className="text-center">
-                                {!user ? <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Please login Now</h1> :
+                                {/* comment */}
+                                {!Cart ? <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Please login Now</h1> :
                                     <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>}
                             </header>
-                            {!user ? <div className='flex items-center justify-center'>
+                            {!lll ? <div className='flex items-center justify-center'>
                                 <button className='mt-10 bg-[#2563eb] px-16 py-3 text-white font-medium' >
                                     <Link href="/login">login</Link>
                                 </button>

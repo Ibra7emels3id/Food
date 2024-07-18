@@ -4,7 +4,6 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../lib/hooks';
 import { CleareCart } from '../../../lib/features/CartSlice';
-import { useUser } from '@clerk/nextjs';
 import LoaderPayment from './LoaderPayment'
 
 const CheckoutForm = () => {
@@ -12,7 +11,7 @@ const CheckoutForm = () => {
     // handle Send Data Strape
     const dispatch = useAppDispatch()
     const dataCart = useAppSelector((state) => state.cart)
-    const { user } = useUser()
+    // const { user } = useUser()
 
     const handleCheckOutCart = async () => {
         try {
@@ -24,9 +23,9 @@ const CheckoutForm = () => {
                 },
                 body: JSON.stringify({
                     data: {
-                        user: user?.username,
-                        UserName: user?.fullName,
-                        Email: user?.emailAddresses[0]?.emailAddress,
+                        // user: user?.username,
+                        // UserName: user?.fullName,
+                        // Email: user?.emailAddresses[0]?.emailAddress,
                         products: dataCart.cart,
                         boolean: false
                     }

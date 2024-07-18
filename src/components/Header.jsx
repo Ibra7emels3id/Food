@@ -2,14 +2,11 @@ import * as React from 'react';
 import Box from '@mui/joy/Box';
 import Badge from '@mui/joy/Badge';
 import Typography from '@mui/joy/Typography';
-import Warning from '@mui/icons-material/Warning';
 import Link from 'next/link';
 import { useAppDispatch, useAppSelector } from '../lib/hooks';
 import { gettotal } from '../lib/features/CartSlice';
-import { IconButton } from '@mui/material';
 import MenuCartCheck from './MenuCartCheck';
 import { showCheckTost } from '../lib/features/AlertTost';
-import { UserButton, useUser } from '@clerk/nextjs';
 
 
 function Header() {
@@ -31,8 +28,6 @@ function Header() {
     const HandleMainCheckCart = () => {
         dispatch(showCheckTost())
     }
-
-    const {user} = useUser()
 
     // console.log(user?.emailAddresses[0].emailAddress);
 
@@ -106,7 +101,8 @@ function Header() {
                         </nav>
                     </div>
                     <div className="flex items-center gap-4">
-                        {!user ? <div className="sm:flex sm:gap-4">
+                        {/* comment */}
+                        {!total ? <div className="sm:flex sm:gap-4">
                             <Link className="rounded-md bg-[#2563eb] px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-teal-500"
                                 href="/login">
                                 Login   
@@ -117,7 +113,7 @@ function Header() {
                                     Register
                                 </Link>
                             </div>
-                        </div> :  <UserButton/> }
+                        </div> :  null }
 
                         <div className="block md:hidden">
                             <button

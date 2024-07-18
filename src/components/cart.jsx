@@ -1,5 +1,4 @@
 'use client'
-import { useUser } from '@clerk/nextjs';
 import CartSlice, { addItem } from '../lib/features/CartSlice';
 import { useAppDispatch } from '../lib/hooks';
 import Image from 'next/image';
@@ -7,7 +6,7 @@ import React from 'react';
 
 const Cart = ({ item }) => {
 
-    const { user } = useUser()
+    // const { user } = useUser()
 
     // console.log(user?.username);
 
@@ -26,9 +25,9 @@ const Cart = ({ item }) => {
                 },
                 body: JSON.stringify({
                     data: {
-                        user: user?.username,
-                        UserName: user?.fullName,
-                        Email: user?.emailAddresses[0]?.emailAddress,
+                        // user: user?.username,
+                        // UserName: user?.fullName,
+                        // Email: user?.emailAddresses[0]?.emailAddress,
                         products: id    
                     }
                 })
