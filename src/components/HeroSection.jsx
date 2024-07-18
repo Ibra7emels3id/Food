@@ -9,6 +9,7 @@ function HeroSection() {
                         <h1
                             className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
                         >
+                            Build User-Centric Experiences.
                             Understand User Flow.
 
                             <span className="sm:block"> Increase Conversion. </span>
