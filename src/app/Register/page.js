@@ -1,4 +1,4 @@
-import { SignUp } from "@clerk/nextjs";
+
 import React from "react";
 
 const Page = () => {
@@ -72,7 +72,7 @@ const Page = () => {
                                     quibusdam aperiam voluptatum.
                                 </p>
                             </div>
-                            <SignUp />
+                            {/* <SignUp /> */}
                         </div>
                     </main>
                 </div>
