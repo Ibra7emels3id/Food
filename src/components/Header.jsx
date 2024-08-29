@@ -7,9 +7,13 @@ import { useAppDispatch, useAppSelector } from '../lib/hooks';
 import { gettotal } from '../lib/features/CartSlice';
 import MenuCartCheck from './MenuCartCheck';
 import { showCheckTost } from '../lib/features/AlertTost';
+import { useSession } from 'next-auth/react';
 
 
 function Header() {
+    const { data: session, status } = useSession();
+    console.log(session?.user);
+    
 
     const dispatch = useAppDispatch()
 
@@ -102,7 +106,7 @@ function Header() {
                     </div>
                     <div className="flex items-center gap-4">
                         {/* comment */}
-                        {!total ? <div className="sm:flex sm:gap-4">
+                        {total ? <div className="sm:flex sm:gap-4">
                             <Link className="rounded-md bg-[#2563eb] px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-teal-500"
                                 href="/login">
                                 Login   

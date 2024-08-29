@@ -12,7 +12,7 @@ function shop() {
     const dispatch = useAppDispatch()
     const data = useAppSelector((state) => state)
 
-    const products = data.product.data.data
+    const products = data?.product?.data?.data
     const Loading = data.product.isLoading
     // console.log(data.product.isLoading);
 

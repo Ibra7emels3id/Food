@@ -21,7 +21,6 @@ const Page = () => {
     })
 
 
-
     return (
         <>
             <div className="checkOut pt-16 px-5">

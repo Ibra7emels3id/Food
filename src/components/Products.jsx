@@ -39,9 +39,9 @@ const Products = () => {
     }
 
     const AllItems = Alignment === 'All' ?
-        (allProducts.data && allProducts.data.slice(0 , 6).map((item) => {
+        (allProducts?.data && allProducts?.data?.slice(0 , 6).map((item) => {
             return <Cart key={item.id} item={item} />
-        })) :GetAllProducts.slice(0 , 6).map((item) => {
+        })) :GetAllProducts?.slice(0 , 6).map((item) => {
             return <Cart key={item.id} item={item} />
         })
 
