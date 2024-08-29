@@ -27,7 +27,7 @@ export const authOptions = {
             }
         })
     ],
-    secret: "$secret"
+    secret: process.env.SUCRETURN_SEC
 };
 
 
