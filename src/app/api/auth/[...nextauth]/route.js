@@ -5,25 +5,30 @@ import User from "../../../models/User";
 import { connectMongoDB } from "../../../DB/mongoDb";
 import bcrypt from 'bcrypt'
 
+
+
 const handler = NextAuth({
     providers: [
         CredentialsProvider({
             async authorize(credentials, req) {
-                await connectMongoDB();
+                await connectMongoDB()
 
-                const user = await User.findOne({ email: credentials.email });
-
+                const user = await User.findOne({ email: credentials.email })
+        
                 if (user) {
-                    const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
-                    if (isPasswordValid) {
-                        return user;
+                    const HashPassword = await bcrypt.compare(credentials.password , user.password)
+                    if (HashPassword){
+                        return user
                     }
+                    return user
+                } else {
+                    return null
                 }
-                return null;
             }
         })
     ],
-    secret: process.env.SECRET,
+    // secret: process.env.SUCRETURN_SEC
+    secret: 'process.env.SUCRETURN_SEC',
 });
 
 export { handler as GET, handler as POST }
