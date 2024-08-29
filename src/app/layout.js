@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Provider } from "react-redux";
 import { Store } from "../lib/store";
-import AuthProvider from "../Providers/AuthProvider.js";
+import AuthProvider from "./Providers/AuthProvider";
 
 
 const inter = Inter({ subsets: ["latin"] });
