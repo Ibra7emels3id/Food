@@ -5,7 +5,7 @@ import User from "../../../models/User";
 import { connectMongoDB } from "../../../DB/mongoDb";
 import bcrypt from 'bcrypt'
 
-export const authOptions = {
+const handler = NextAuth({
     providers: [
         CredentialsProvider({
             async authorize(credentials, req) {
@@ -24,7 +24,6 @@ export const authOptions = {
         })
     ],
     secret: process.env.SECRET,
-};
+});
 
-const handler = NextAuth(authOptions);
-export { handler as GET, handler as POST };
+export { handler as GET, handler as POST }
