@@ -19,7 +19,7 @@ function Header() {
 
     const total = useAppSelector((state) => state.cart)
 
-    const Quantity = total.cartquantity
+    const Quantity = total?.cartquantity
 
     React.useEffect(() => {
         dispatch(gettotal())

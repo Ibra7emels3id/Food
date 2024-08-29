@@ -15,7 +15,7 @@ const Products = () => {
     const Dispatch = useAppDispatch()
 
 
-    const allProducts = useAppSelector((state) => state.product.data)
+    const allProducts = useAppSelector((state) => state?.product?.data)
     const Loading = useAppSelector((state) => state.product.isLoading)
 
 
@@ -33,7 +33,7 @@ const Products = () => {
     let ValueProducts ;
 
     if (Alignment === 'All') {
-        ValueProducts = allProducts.data && allProducts.data;
+        ValueProducts = allProducts?.data && allProducts?.data;
     } else {
         ValueProducts = GetAllProducts
     }

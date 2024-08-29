@@ -13,7 +13,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 const MenuCartCheck = () => {
     const dispatch = useAppDispatch()
     const Show = useAppSelector((state) => state.Show.show)
-    const Carts = useAppSelector((state) => state.cart.cart)
+    const Carts = useAppSelector((state) => state?.cart?.cart)
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {

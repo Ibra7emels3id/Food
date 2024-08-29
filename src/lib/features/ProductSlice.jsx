@@ -4,7 +4,7 @@ const { createSlice , createAsyncThunk } = require("@reduxjs/toolkit");
 export const fetchProducts = createAsyncThunk('fetchProducts' , async ()=>{
     const data = await fetch('http://localhost:1337/api/products?populate=*')
     // const data = await fetch('http://localhost:9000/Products')
-    return data.json();
+    return data?.json();
 })
 
 
@@ -20,7 +20,7 @@ const ProductSlice = createSlice({
     initialState ,
     extraReducers:(builder)=>{
         builder.addCase(fetchProducts.pending,(state,action)=>{
-            state.isLoading = true;
+            state.isLoading = false;
         })
         builder.addCase(fetchProducts.fulfilled,(state,action)=>{
             state.isLoading = false;
