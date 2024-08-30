@@ -20,6 +20,7 @@ const ProductSlice = createSlice({
     initialState ,
     extraReducers:(builder)=>{
         builder.addCase(fetchProducts.pending,(state,action)=>{
+            // isLoading = true;
             state.isLoading = false;
         })
         builder.addCase(fetchProducts.fulfilled,(state,action)=>{

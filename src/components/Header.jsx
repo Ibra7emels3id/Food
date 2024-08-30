@@ -8,12 +8,12 @@ import { gettotal } from '../lib/features/CartSlice';
 import MenuCartCheck from './MenuCartCheck';
 import { showCheckTost } from '../lib/features/AlertTost';
 import { useSession } from 'next-auth/react';
+import { Avatar } from '@mui/material';
 
 
 function Header() {
     const { data: session, status } = useSession();
-    console.log(session?.user);
-    
+
 
     const dispatch = useAppDispatch()
 
@@ -33,7 +33,6 @@ function Header() {
         dispatch(showCheckTost())
     }
 
-    // console.log(user?.emailAddresses[0].emailAddress);
 
 
     return (
@@ -106,10 +105,10 @@ function Header() {
                     </div>
                     <div className="flex items-center gap-4">
                         {/* comment */}
-                        {total ? <div className="sm:flex sm:gap-4">
+                        {!session?.user ? <div className="sm:flex sm:gap-4">
                             <Link className="rounded-md bg-[#2563eb] px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-teal-500"
                                 href="/login">
-                                Login   
+                                Login
                             </Link>
                             <div className="hidden sm:flex">
                                 <Link className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
@@ -117,7 +116,8 @@ function Header() {
                                     Register
                                 </Link>
                             </div>
-                        </div> :  null }
+                        </div> : <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" />
+                        }
 
                         <div className="block md:hidden">
                             <button

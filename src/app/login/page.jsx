@@ -1,10 +1,30 @@
-import React from "react";
+'use client'
+import React, { useEffect } from "react";
 import Forms from "./_components/Forms"
+import { useSession } from 'next-auth/react';
+import { useRouter } from "next/navigation";
+import Loader from "../../components/Loader";
+
 
 const Page = () => {
+    const { data: session, status } = useSession();
+    //set RouterState 
+    const router = useRouter();
+
+    useEffect(() => {
+        if (session?.user) {
+            router.push('/');
+        }
+    }, [session, router]);
+
+
+    if (status === 'loading') {
+        return <Loader />
+    }
+
     return (
         <>
-            <section className="bg-white dark:bg-gray-900">
+            {session?.user ? router.push('/') : <section className="bg-white dark:bg-gray-900">
                 <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
                     <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
                         <img
@@ -76,7 +96,7 @@ const Page = () => {
                         </div>
                     </main>
                 </div>
-            </section>
+            </section>}
         </>
     );
 };

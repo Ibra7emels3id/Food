@@ -1,10 +1,21 @@
+'use client'
 import React, { use } from 'react';
 import Forms from './_components/Forms'
-
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import Loader from '../../components/Loader'
 const Page = () => {
+    const { data: session, status } = useSession()
+    const Router = useRouter()
+
+
+    // Set Loader state
+    if (status === 'loading') {
+        return <Loader />
+    }
     return (
         <>
-            <section className="bg-white">
+            {session?.user ? Router.push('/') : <section className="bg-white">
                 <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
                     <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
                         <img
@@ -57,7 +68,7 @@ const Page = () => {
                         </div>
                     </main>
                 </div>
-            </section>
+            </section>}
         </>
     );
 }
