@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 // import ButtonsIcons from './ButtonsIcons'
 import Link from 'next/link';
 import { signIn } from "next-auth/react";
+import { toast } from 'react-toastify';
 
 
 
@@ -24,8 +25,10 @@ const Forms = () => {
             });
             if (res.error) {
                 console.log('Error during signIn:', res.error);
+                toast.error('Please check your email or password')
             } else {
                 console.log('SignIn successful:', res);
+                toast.success("Login success")
             }
         }
 

@@ -3,14 +3,18 @@ import React, { useEffect, useState } from 'react';
 // import ButtonsIcons from './ButtonsIcons'
 import Link from 'next/link';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { Alert, Stack } from '@mui/material';
 
 
 const Forms = () => {
+    const Router = useRouter()
     const [DataUser, setDataser] = useState({
         name: '',
         email: '',
         password: '',
     })
+    const [alert, setAlert] = useState({ message: '', severity: '' })
     const HandleSubmit = async (e) => {
         e.preventDefault()
 
@@ -21,11 +25,24 @@ const Forms = () => {
                 password: DataUser.password,
             })
             console.log(response);
-            
+            setAlert({ message: response.data.message, severity: 'success' })
+            setTimeout(() => {
+                Router.push('/login')
+            }, 2000);
+            return
         }
         catch (error) {
             console.log('Error message', error);
         }
+    }
+
+
+    if (alert.message) {
+        return <Stack sx={{ width: '100%' }} spacing={2}>
+            <Alert variant="filled" severity={alert.severity}>
+                {alert.message}
+            </Alert>
+        </Stack>
     }
 
 

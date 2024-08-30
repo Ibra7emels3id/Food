@@ -7,7 +7,8 @@ import Footer from "../components/Footer";
 import { Provider } from "react-redux";
 import { Store } from "../lib/store";
 import AuthProvider from "./Providers/AuthProvider";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
                     <Provider store={Store}>
                         <Header />
                         <main>
+                            <ToastContainer />
                             {children}
                         </main>
                         <Footer />
