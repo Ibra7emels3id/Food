@@ -41,7 +41,7 @@ export default function AccountMenu() {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{ width: 32, height: 32 }}><Image 
+                        <Avatar sx={{ width: 32, height: 32 }}><Image
                             src="https://mui.com/static/images/avatar/1.jpg"
                             width={32}
                             height={32}
@@ -107,10 +107,9 @@ export default function AccountMenu() {
                     Settings
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
-                    <ListItemIcon onClick={handleSignOut}>
-                        <Logout fontSize="small" />
+                    <ListItemIcon >
+                        <span className='flex items-center justify-center gap-4 px-1 text-[#232323]' onClick={handleSignOut}><Logout fontSize="small" />Logout</span>
                     </ListItemIcon>
-                    Logout
                 </MenuItem>
             </Menu>
         </React.Fragment>
