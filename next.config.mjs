@@ -2,7 +2,7 @@
 const nextConfig = {
 
     images: {
-        domains: ['strapi.example.com','localhost' , 'localhost:1337'],
+        domains: ['strapi.example.com','localhost','mui.com' , 'localhost:1337'],
     },
 
 };

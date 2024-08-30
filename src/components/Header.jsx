@@ -9,7 +9,7 @@ import MenuCartCheck from './MenuCartCheck';
 import { showCheckTost } from '../lib/features/AlertTost';
 import { useSession } from 'next-auth/react';
 import { Avatar } from '@mui/material';
-
+import Menu from './MenuAccount/Menu'
 
 function Header() {
     const { data: session, status } = useSession();
@@ -116,7 +116,7 @@ function Header() {
                                     Register
                                 </Link>
                             </div>
-                        </div> : <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" />
+                        </div> : <Menu />
                         }
 
                         <div className="block md:hidden">

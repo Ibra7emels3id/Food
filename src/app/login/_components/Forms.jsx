@@ -15,7 +15,6 @@ const Forms = () => {
     })
     const HandleSubmit = async (e) => {
         e.preventDefault()
-        // alert('submit')
 
         try {
             const res = await signIn("credentials", {
@@ -77,11 +76,11 @@ const Forms = () => {
                     <button
                         className="inline-block w-full shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
                     >
-                        Create an account
+                        Sign In
                     </button>
                     <p className="mt-4 text-sm text-gray-500 sm:mt-0">
-                        Already have an account?
-                        <Link href="/login" className="text-gray-700 underline"> Log in</Link>.
+                        Do you have an account?
+                        <Link href="/Register" className="text-gray-700 underline mx-2">Register.</Link>
                     </p>
                 </div>
             </form>
